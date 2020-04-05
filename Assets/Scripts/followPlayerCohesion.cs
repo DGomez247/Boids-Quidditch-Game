@@ -3,37 +3,39 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class BoidAlignment : MonoBehaviour
+[RequireComponent(typeof(followPlayerBoid))]
+
+public class followPlayerCohesion : MonoBehaviour
 {
-    private Boids boid;
+    private followPlayerBoid boid;
+
     public float radius;
-    // Start is called before the first frame update
+
+    // Use this for initialization
     void Start()
     {
-        boid = GetComponent<Boids>();
+        boid = GetComponent<followPlayerBoid>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        var boids = FindObjectsOfType<Boids>();
+        var boids = FindObjectsOfType<followPlayerBoid>();
         var average = Vector3.zero;
         var found = 0;
-
         foreach (var boid in boids.Where(b => b != boid))
         {
             var diff = boid.transform.position - this.transform.position;
             if (diff.magnitude < radius)
             {
-                average += boid.velocity;
+                average += diff;
                 found += 1;
             }
         }
         if (found > 0)
         {
             average = average / found;
-            boid.velocity += Vector3.Lerp(boid.velocity, average,Time.deltaTime);
+            boid.velocity += Vector3.Lerp(Vector3.zero, average, (average.magnitude) / radius);
         }
     }
 }
-
