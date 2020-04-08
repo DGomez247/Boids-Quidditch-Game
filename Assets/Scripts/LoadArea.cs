@@ -18,7 +18,7 @@ public class LoadArea : MonoBehaviour
 
     public void LoadCredit()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(2);
     }
 
     public void LoadMainMenu()
