@@ -23,13 +23,13 @@ public class LoadArea : MonoBehaviour
 
     public void LoadMainMenu()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
        
     }
 
     public void LoadGameScene()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
 
     }
 
