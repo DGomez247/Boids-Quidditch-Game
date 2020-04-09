@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Quaffle
+  - HPSCORE
+  - GSCORE
+  - LazyBoids
+  - LazySly
+  - SSCORE
   layers:
   - Default
   - TransparentFX
